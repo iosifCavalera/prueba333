@@ -6,6 +6,7 @@ on:
   push:
     branches:
       - main
+      - master
 
 # Define los jobs que se ejecutarán
 jobs:
