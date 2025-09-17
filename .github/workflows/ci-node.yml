@@ -1,0 +1,34 @@
+# Nombre del workflow, aparece en la interfaz de GitHub.
+name: Node.js CI
+
+# Evento que dispara el workflow
+on:
+  push:
+    branches:
+      - main
+
+# Define los jobs que se ejecutarán
+jobs:
+  build:
+    # El sistema operativo donde se ejecutará este job
+    runs-on: ubuntu-latest
+
+    # Los pasos (steps) que conforman el job
+    steps:
+      # Paso 1: Obtener el código de tu repositorio
+      - name: Checkout del código
+        uses: actions/checkout@v4
+
+      # Paso 2: Configurar el entorno de Node.js
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22' # Usa la versión de Node.js que necesites
+
+      # Paso 3: Instalar las dependencias
+      - name: Instalar dependencias
+        run: npm install
+
+      # Paso 4: Ejecutar las pruebas
+      #- name: Ejecutar pruebas
+       # run: npm test
